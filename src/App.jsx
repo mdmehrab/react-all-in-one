@@ -1,9 +1,12 @@
 
+import HelloWorld from './components/HelloWorld';
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <>
+      <HelloWorld />
+    </>
+  );
+};
 
-export default App
+export default App;
