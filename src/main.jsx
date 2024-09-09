@@ -1,13 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import { HelloProvider } from "./context/HelloContext";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
+import { BrowserRouter as Router } from "react-router-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <HelloProvider>
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <Router>
       <App />
-    </HelloProvider>
-  </React.StrictMode>,
-  document.getElementById("root")
+    </Router>
+  </StrictMode>
 );
