@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import { Route, Routes } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+import { StopWatch } from "./components/StopWatch";
 
 export default function App() {
   return (
@@ -30,6 +31,9 @@ export default function App() {
             </Col>
           </Row>
         </Container>
+      </div>
+      <div className="text-center py-5">
+        <StopWatch />
       </div>
     </>
   );
