@@ -7,11 +7,13 @@ import Products from "./pages/Products";
 import { Route, Routes } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { StopWatch } from "./components/StopWatch";
+import RefComp from "./components/RefComp";
 
 export default function App() {
   return (
     <>
-      <Header />
+      <RefComp />
+      {/* <Header />
       <div className="d-flex">
         <Container fluid>
           <Row>
@@ -34,7 +36,7 @@ export default function App() {
       </div>
       <div className="text-center py-5">
         <StopWatch />
-      </div>
+      </div> */}
     </>
   );
 }
