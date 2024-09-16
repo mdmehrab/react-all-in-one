@@ -1,0 +1,46 @@
+export const headerCategories = [
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Egg", price: "43" },
+  { id: 1, label: "Bread", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+  { id: 1, label: "Fish", price: "67" },
+];
+
+export const sidebarMenu = [
+  { id: 1, text: "Offers", icon: "FaAngleRight" },
+  {
+    id: 2,
+    text: "Deals",
+    icon: "FaArrowRightLong",
+    categories: [
+      { id: 1, catName: "fish" },
+      { id: 1, catName: "fish" },
+      { id: 1, catName: "fish" },
+    ],
+  },
+  { id: 3, text: "Deals", icon: "FaArrowRightLong" },
+  { id: 4, text: "Deals", icon: "FaArrowRightLong" },
+  // Continue for other menu items
+];
