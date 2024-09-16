@@ -1,9 +1,9 @@
 /* google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 * {
   margin: 0;
@@ -17,10 +17,14 @@ body {
   /* font-family: "Raleway", sans-serif; */
 }
 
-a {
-  text-decoration: none;
-}
+// Example of variables
+$primary-color: #3498db;
+$font-size-large: 4rem;
+$spacing: 16px;
 
-ul {
-  list-style-type: none;
+.nav {
+  h2 {
+    color: $primary-color;
+    font-size: $font-size-large;
+  }
 }
