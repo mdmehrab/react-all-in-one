@@ -1,56 +1,60 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function FetchData() {
-  const [document, setDocuments] = useState([]);
-
-  console.log(document);
+function FetchData() {
+  const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
-    const fetchDocument = async () => {
-      const realData = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts`
-      );
-
-      setDocuments(realData.data);
+    const getData = async () => {
+      const res = await axios.get(`https://jsonplaceholder.typicode.com/users`);
+      setUserInfo(res.data);
     };
 
-    fetchDocument();
+    getData();
   }, []);
 
   return (
     <>
-      <h1>Fetch data </h1>
-      <div className="container">
-        <div className="row">
-          {document.map((item) => {
-            return (
-              <>
-                <div className="col-4">
-                  <div
-                    className="card"
-                    style={{
-                      width: "300px",
-                    }}
-                  >
-                    <div className="card-body">
-                      <h5 className="card-title">{item.title}</h5>
-                      <p className="card-text">{item.body}</p>
-                      <Link
-                        to={`/details/${item.id}`}
-                        className="btn btn-primary"
-                      >
-                        Go somewhere
-                      </Link>
+      <section>
+        <div className="container">
+          <h2 className="text-center py-5">Fetch Data</h2>
+          <div className="row">
+            {userInfo?.length > 0 ? (
+              userInfo?.map((user) => (
+                <>
+                  <div className="col-4 my-2">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">{user.name}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">
+                          {user.email}
+                        </h6>
+                        <p class="card-text">{user.address.street}</p>
+                        <p class="card-text">{user.address.suite}</p>
+                        <p class="card-text">{user.phone}</p>
+                        <p class="card-text">
+                          {user.company.bs || "any company"}
+                        </p>
+                        <Link to={`/details/${user.id}`} class="card-link">
+                          User Details
+                        </Link>
+                        <Link to="#" class="card-link text-uppercase">
+                          Album
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </>
-            );
-          })}
+                </>
+              ))
+            ) : (
+              <p className="text-center text-danger">No Data Found!</p>
+            )}
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
+
+export default FetchData;
