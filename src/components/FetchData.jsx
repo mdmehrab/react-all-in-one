@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 function FetchData() {
   const [userInfo, setUserInfo] = useState([]);
 
+  useEffect(() => {}, []);
+
   return (
     <>
       <section>
@@ -15,12 +17,10 @@ function FetchData() {
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title"></h5>
-                  <h6 className="card-subtitle mb-2 text-body-secondary">
-                    {user.username}
-                  </h6>
-                  <p className="card-text"></p>
-                  <p className="card-text"></p>
-                  <p className="card-text"></p>
+                  <h6 className="card-subtitle mb-2 text-body-secondary">[]</h6>
+                  <p className="card-text">asfhlf</p>
+                  <p className="card-text">dskjflk</p>
+                  <p className="card-text">asjclk</p>
                   <Link to={`/details/`} className="card-link">
                     User Details
                   </Link>
