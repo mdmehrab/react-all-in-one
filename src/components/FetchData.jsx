@@ -1,48 +1,69 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-export const FetchData = () => {
+function FetchData() {
   const [userInfo, setUserInfo] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const res = await axios.get(
-        `https://jsonplaceholder.typicode.com/photos`
-      );
-      setUserInfo(res.data);
+      try {
+        const res = await axios.get(
+          `https://jsonplaceholder.typicode.com/users`
+        );
+        setUserInfo(res.data);
+      } catch (error) {
+        console.error("Error fetching users data:", error);
+      }
     };
-
     getData();
   }, []);
-
-  const renderedData = userInfo.slice(0, 10)?.map((item) => {
-    const { id, title, url, albumId, thumbnailUrl } = item;
-
-    return (
-      <div className="col-4" key={id}>
-        <div className="card">
-          <img src={thumbnailUrl} alt={title} height="300" />
-          <div className="card-body">
-            <h5 className="card-title">Album ID: {albumId}</h5>
-          </div>
-          <ul className="list-group list-group-flush">
-            <li className="list-group-item">{title}</li>
-          </ul>
-        </div>
-      </div>
-    );
-  });
 
   return (
     <>
       <section>
         <div className="container">
+          <h2 className="text-center py-5">Fetch Data</h2>
           <div className="row">
-            {/* Render the mapped data */}
-            {renderedData}
+            {userInfo.map((user) => {
+              const {
+                id,
+                name,
+                email,
+                company: { name: companyName },
+              } = user;
+              return (
+                <div className="col-4 my-2" key={id}>
+                  <div className="card">
+                    <div className="card-body">
+                      <h5 className="card-title">{name}</h5>
+                      <h6 className="card-subtitle mb-2 text-body-secondary">
+                        Company: {companyName}
+                      </h6>
+                      <p className="card-text">{email}</p>
+                      <Link to={`/details/${id}`} className="card-link">
+                        User Details
+                      </Link>
+                      <Link to="#" className="card-link text-uppercase">
+                        Album
+                      </Link>
+                    </div>
+                    <div className="card-header">Featured</div>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item">{user.id}</li>
+                      <li className="list-group-item">{user.name}</li>
+                      <li className="list-group-item">{user.username}</li>
+                      <li className="list-group-item">{user.email}</li>
+                    </ul>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
     </>
   );
-};
+}
+
+export default FetchData;

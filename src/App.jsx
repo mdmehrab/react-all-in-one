@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Details from "./pages/Details";
-import { FetchData } from "./components/FetchData";
+import FetchData from "./components/FetchData"; // Consistent naming with default export
 
 export default function App() {
   return (
