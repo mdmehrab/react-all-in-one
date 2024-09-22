@@ -3,20 +3,20 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function Details() {
-  const { userDetails: userId } = useParams();
+  const { userDetails: userId } = useParams(); // Destructure params for clarity
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(false);
 
   useEffect(() => {
     const getUserData = async () => {
-      setError(false);
+      setError(false); // Reset error before fetching data
       try {
         const res = await axios.get(
           `https://jsonplaceholder.typicode.com/users/${userId}`
         );
         setUserData(res.data);
       } catch (error) {
-        setError(true);
+        setError(true); // Set error state if request fails
         console.error("Error fetching user data:", error);
       }
     };
